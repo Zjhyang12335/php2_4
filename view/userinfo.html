@@ -22,7 +22,7 @@
 		</div>
 		<div class="main-title"></div>
 		<div class="main-content">
-			<form action="" method="post">
+			<form action="showinfo.php" method="post">
 				<table>
 					<tr>
 						<th>姓名：</th>
@@ -31,24 +31,26 @@
 					<tr>
 						<th>性别：</th>
 						<td>
-							<input type="radio" name="sex" id="">男
-							<input type="radio" name="sex" id="">女
+							<input type="radio" name="sex" id="" value="男">男
+							<input type="radio" name="sex" id="" value="女">女
 						</td>
 					</tr>
 					<tr>
 						<th>血型：</th>
 						<td>
 							<select name="blood" id="">
-								<option value="">A</option>
-								<option value="">B</option>
+								<?php foreach($blood as $v):?>
+								<option value="<?php echo $v; ?>"><?php echo $v; ?></option>
+								<?php endforeach;?>
 							</select>
 						</td>
 					</tr>
 					<tr>
 						<th>爱好：</th>
 						<td>
-							<input type="checkbox" name="hobby" id="">唱歌
-							<input type="checkbox" name="hobby" id="">跳舞
+							<?php foreach($hobby as $v): ?>
+							<input type="checkbox" name="hobby" id="" value="<?php echo $v;?>"><?php echo $v;?>
+							<?php endforeach;?>
 						</td>
 					</tr>
 					<tr>
