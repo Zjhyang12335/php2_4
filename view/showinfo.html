@@ -25,6 +25,7 @@
 			<?php if(isset($user_data)):?>
 				<p>姓名：<?php echo $user_data['name'];?></p>
 				<p>性别：<?php echo $user_data['sex'];?></p>
+				<p>电话：<?php echo $user_data['tel'];?></p>
 				<p>血型：<?php echo $user_data['blood'];?></p>
 				<p>爱好：<?php echo !empty($user_data['hobby'])?implode('、',$user_data['hobby']):'';?></p>
 				<p>个人简介：<?php echo $user_data['description'];?></p>
