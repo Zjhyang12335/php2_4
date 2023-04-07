@@ -24,11 +24,14 @@ if (!empty($_POST)){
     }else{
         exit('联系电话请输入整数');
     }
+    // 文件存储
+    $data = serialize($user_data);// 将数组序列化
+    file_put_contents($file_path, $data);// 将序列化数据写入文件中
 }
 
-
-// 文件存储
-$data = serialize($user_data);// 将数组序列化
-file_put_contents($file_path, $data);// 将序列化数据写入文件中
+if (is_file($file_path)){// 没有表单提交时，读取文件中的数据
+    $data = file_get_contents($file_path);// 从文件中读取数据，并存储到$data中
+    $user_data = unserialize($data);// 将数据反序列化为数组$user_data['name']
+}
 // 加载showinfo.html页面，显示数据
 require './view/showinfo.html';

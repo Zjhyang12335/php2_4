@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="box">
+	<div class="title">用户中心</div>
+	<div class="main">
+		<div class="menu">
+			<ul>
+				<li class="menu-title1">个人资料</li>
+				<li id="showinfo"><a href="./showinfo.php">个人信息</a></li>
+				<li id="userinfo"><a href="./userinfo.php">编辑信息</a></li>
+				<li id="photo"><a href="./photo.php">上传头像</a></li>
+				<li id="album"><a href="./album.php">我的相册</a></li>
+				<li class="menu-title2">系统功能</li>
+				<li><a href="./logout.php">退出登录</a></li>
+			</ul>
+		</div>
+		<div class="main-title"></div>
+		<div class="main-content">
+			<form action="showinfo.php" method="post">
+				<table>
+					<tr>
+						<th>姓名：</th>
+						<td><input type="text" name="name" id="" value="<?php echo $user_data['name'];?>"></td>
+					</tr>
+					<tr>
+						<th>性别：</th>
+						<td>
+							<input type="radio" name="sex" id="" value="男"
+							<?php if ($user_data['sex'] == '男') echo 'checked';?>>男
+							<input type="radio" name="sex" id="" value="女"
+							<?php if ($user_data['sex'] == '女') echo 'checked';?>>女
+						</td>
+					</tr>
+					<tr>
+						<th>联系电话：</th>
+						<td>
+							<input type="tel" name="tel" id="">
+						</td>
+					</tr>
+					<tr>
+						<th>血型：</th>
+						<td>
+							<select name="blood" id="">
+								<?php foreach($blood as $v):?>
+								<option value="<?php echo $v;?>" 
+									<?php if ($user_data['blood'] == $v) echo 'selected';?>
+									><?php echo $v; ?></option>
+								<?php endforeach;?>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th>爱好：</th>
+						<td>
+							<?php foreach($hobby as $v): ?>
+								<input type="checkbox" name="hobby[]" id="" value="<?php echo $v;?>"
+								<?php if (in_array($v,$user_data['hobby'])) echo 'checked';?>
+								><?php echo $v;?>
+							<?php endforeach;?>
+						</td>
+					</tr>
+					<tr>
+						<th>个人简介：</th>
+						<td><textarea name="description" id=""><?php echo $user_data['description'];?></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="reset" value="重置">
+							<input type="submit" value="提交">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
