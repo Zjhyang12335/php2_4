@@ -15,8 +15,8 @@ if (isset($_FILES['pic'])){
     if ($pic['type'] !== 'image/jpeg'){
         exit('图像类型不符，只支持jpg格式');
     }
-    if ($pic['size'] > 2000000){
-        exit('图像大小超过2M，上传失败');
+    if ($pic['size'] > 1000000){
+        exit('图像大小超过1M，上传失败');
     }
     // 将上传的文件从临时目录中复制到指定路径
     if (!move_uploaded_file($pic['tmp_name'], $save_path)){
