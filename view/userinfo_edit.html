@@ -40,7 +40,7 @@
 					<tr>
 						<th>联系电话：</th>
 						<td>
-							<input type="tel" name="tel" id="">
+							<input type="tel" name="tel" id="" value="<?php echo $user_data['tel'];?>">
 						</td>
 					</tr>
 					<tr>
@@ -60,14 +60,14 @@
 						<td>
 							<?php foreach($hobby as $v): ?>
 								<input type="checkbox" name="hobby[]" id="" value="<?php echo $v;?>"
-								<?php if (in_array($v,$user_data['hobby'])) echo 'checked';?>
+								<?php if (!empty($user_data['hobby'])) {if (in_array($v,$user_data['hobby'])) echo 'checked';}?>
 								><?php echo $v;?>
 							<?php endforeach;?>
 						</td>
 					</tr>
 					<tr>
 						<th>个人简介：</th>
-						<td><textarea name="description" id=""><?php echo $user_data['description'];?></textarea></td>
+						<td><textarea name="description" id="" value="<?php echo $user_data['description'];?>"><?php echo $user_data['description'];?></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
