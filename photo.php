@@ -1,7 +1,7 @@
 <?php
 require './library/function.php';
 header('content-type:text/html; charset=utf-8');
-$user_id = 21180123;
+$user_id = checkLogin();// 用户id
 // 定义缩略图存放路径
 $photo = "./uploads/thumb_$user_id.jpg";
 // 判断是否上传图像
@@ -15,7 +15,8 @@ if (isset($_FILES['pic'])){
     if ($pic['type'] !== 'image/jpeg'){
         exit('图像类型不符，只支持jpg格式');
     }
-    if ($pic['size'] > 1000000){
+    // 判断文件大小是否小于1M
+    if ($pic['size'] >= 1048576){
         exit('图像大小超过1M，上传失败');
     }
     // 将上传的文件从临时目录中复制到指定路径

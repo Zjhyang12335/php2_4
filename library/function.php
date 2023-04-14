@@ -31,3 +31,12 @@ function thumb($max_width,$max_height,$file_path,$save_path){
     imagejpeg($thumb, $save_path, 100);
 }
 
+// 读取session，返回登录用户的id
+function checkLogin(){
+    session_start();
+    if (!isset($_SESSION['user'])){
+        header('Location: login.php');// 如果session数据不存在，则跳转到登录页面，重新登录
+        exit;
+    }
+    return isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : 0;
+}

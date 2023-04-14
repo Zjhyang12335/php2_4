@@ -22,7 +22,7 @@
 		</div>
 		<div class="main-title"></div>
 		<div class="main-content">
-			<?php if(isset($user_data)):?>
+			<?php if(!empty($user_data)):?>
 				<p>姓名：<?php echo $user_data['name'];?></p>
 				<p>性别：<?php echo $user_data['sex'];?></p>
 				<p>电话：<?php echo $user_data['tel'];?></p>

@@ -1,6 +1,7 @@
 <?php
 header('content-type:text/html; charset=utf-8');
-$user_id = 1;// 用户id
+require './library/function.php';
+$user_id = checkLogin();// 用户id
 $file_path = "./$user_id.txt";// 用户信息文件存储路径
 $user_data = array();
 // 获取表单提交的数据

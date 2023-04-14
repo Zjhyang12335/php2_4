@@ -1,7 +1,8 @@
 <?php
 $blood = array('未知', 'A', 'B', 'O','AB', '其他');// 用于下拉列表显示数据
 $hobby = array('跑步', '游泳', '唱歌', '登山', '旅游', '看电影', '读书');// 用于多选按钮显示数据
-$user_id = 1;// 用户id
+require './library/function.php';
+$user_id = checkLogin();// 用户id
 $file_path = "./$user_id.txt";// 用户信息文件存储路径
 // require './view/userinfo.html';
 // header('content-type:text/html; charset=utf-8');
